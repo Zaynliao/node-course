@@ -1,17 +1,17 @@
-function sum(n){
-    let i=0;
-    let sum=0;
-    for(i=0;i<=n;i++){
-    sum+=i;
+function sum(n) {
+    let i = 0;
+    let sum = 0;
+    for (i = 0; i <= n; i++) {
+        sum += i;
     }
-return sum;
+    return sum;
 }
 
-function sum2(n){
-    return (n+1)*n/2;
+function sum2(n) {
+    return (n + 1) * n / 2;
 }
 
-let sum3 = (n)=>(n+1)*n/2;
+let sum3 = (n) => (n + 1) * n / 2;
 
 
 console.log(sum(1));
