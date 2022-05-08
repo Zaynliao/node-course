@@ -27,6 +27,18 @@ function sum4(n) {
     return sum;
 }
 
+function sum4_ver2(n) {
+    return Array.from({ length: n }, (_, i) => i + 1).reduce((sum, item) => sum + item, 0)
+}
+
+function sum5(n) {
+    if (n == 1) {
+        return 1;
+    } else {
+        return sum5(n - 1) + n;
+    }
+}
+
 
 
 
@@ -50,4 +62,14 @@ console.log("sum4(1) -> " + sum4(1));
 console.log("sum4(10) -> " + sum4(10));
 console.log("sum4(50) -> " + sum4(50));
 console.log("sum4(100) -> " + sum4(100));
+console.log("-------------------");
+console.log("sum4_ver2(1) -> " + sum4_ver2(1));
+console.log("sum4_ver2(10) -> " + sum4_ver2(10));
+console.log("sum4_ver2(50) -> " + sum4_ver2(50));
+console.log("sum4_ver2(100) -> " + sum4_ver2(100));
+console.log("-------------------");
+console.log("sum5(1) -> " + sum5(1));
+console.log("sum5(10) -> " + sum5(10));
+console.log("sum5(50) -> " + sum5(50));
+console.log("sum5(100) -> " + sum5(100));
 console.log("-------------------");
