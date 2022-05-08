@@ -7,8 +7,16 @@ function sum(n){
 return sum;
 }
 
+function sum2(n){
+    return (n+1)*n/2;
+}
+
 
 console.log(sum(1));
 console.log(sum(10));
 console.log(sum(50));
 console.log(sum(100));
+console.log(sum2(1));
+console.log(sum2(10));
+console.log(sum2(50));
+console.log(sum2(100));
