@@ -23,10 +23,12 @@ function getNameFile(FileName) {
                     })
                     .then((response) => {
                         // response 物件
-                        console.log(response.data);
+                        resolve(response.data);
+                        // console.log(response.data);
                     })
                     .catch((e) => {
-                        console.error(e);
+                        reject(e)
+                            // console.error(e);
                     });
             }
         });
@@ -39,7 +41,7 @@ async function main() {
         console.log(getName);
 
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
 
 }
