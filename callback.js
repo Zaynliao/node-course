@@ -12,6 +12,7 @@ let doWork = function(job, timer, cb) {
     console.log(`在 setTomeout 之後 ${job}`);
 };
 
+
 doWork("刷牙", 3000, function(result) {
     // let dt = new Date();
     console.log(result);
