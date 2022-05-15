@@ -4,7 +4,7 @@ fs.readFile('test.txt', 'utf-8', (err, data) => {
     let p = new Promise((resolve, reject) => {
         if (err) {
             // 錯誤了
-            reject('喔喔喔，發生錯誤了');
+            reject(err);
             // console.log('喔喔喔，發生錯誤了');
             // console.error(err);
         } else {
