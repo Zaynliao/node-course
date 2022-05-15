@@ -5,7 +5,7 @@ const axios = require('axios');
 const fs = require('fs');
 
 // 輸入檔案名稱
-function getNameFile(FileName) {
+function getFileName(FileName) {
     return p = new Promise((resolve, reject) => {
         fs.readFile(FileName, 'utf-8', (err, stockNo) => {
             if (err) {
@@ -41,7 +41,7 @@ function getNameFile(FileName) {
 
 (async() => {
     try {
-        let getName = await getNameFile("stock.txt");
+        let getName = await getFileName("stock.txt");
         console.log(getName);
     } catch (e) {
         console.error(e);
