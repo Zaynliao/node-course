@@ -5,7 +5,6 @@ function getNameFile(FileName) {
         fs.readFile(FileName, 'utf-8', (err, data) => {
             if (err) {
                 reject(err);
-
             } else {
                 resolve(data);
             }
