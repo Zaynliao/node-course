@@ -7,6 +7,9 @@ app.get('/', (require, response, next) => {
 app.get('/about', (require, response, next) => {
     response.send('關於我們');
 })
+app.get('/product', (require, response, next) => {
+    response.send('商品');
+})
 
 app.listen(3001, () => {
 
