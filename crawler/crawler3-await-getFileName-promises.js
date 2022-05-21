@@ -22,10 +22,10 @@ async function getStockInformation(stockName, stockDate) {
 (async() => {
     try {
         // 呼叫名稱日期
-        await getStockInformation("stock.txt", "20220301");
-        await getStockInformation("stock.txt", "20220302");
-        await getStockInformation("stock.txt", "20220303");
-        await getStockInformation("stock.txt", "20220304");
+      await getStockInformation("stock.txt", "20220301");
+      await getStockInformation("stock.txt", "20220302");
+      await getStockInformation("stock.txt", "20220303");
+      await getStockInformation("stock.txt", "20220304");
     } catch (e) {
         console.error("資料獲取錯誤 : " + e);
     }
