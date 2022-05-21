@@ -1,4 +1,5 @@
 const mysql = require('mysql2/promise');
+require("dotenv").config();
 
 (async() => {
 
@@ -6,7 +7,7 @@ const mysql = require('mysql2/promise');
         host: 'localhost',
         port: 3306,
         user: 'admin',
-        password: '',
+        password: process.env.OPENWEATER_TOKEN,
         database: 'stock'
     })
 
