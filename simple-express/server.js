@@ -1,13 +1,13 @@
 const express = require('express');
 
 const app = express();
-app.get('/', (require, response, next) => {
+app.get('/', (request, response, next) => {
     response.send('首頁');
 })
-app.get('/about', (require, response, next) => {
+app.get('/about', (request, response, next) => {
     response.send('關於我們');
 })
-app.get('/product', (require, response, next) => {
+app.get('/product', (request, response, next) => {
     response.send('商品');
 })
 
