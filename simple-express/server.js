@@ -6,6 +6,8 @@ const path = require('path');
 const mysql = require('mysql2');
 // const axios = require('axios');
 require('dotenv').config();
+const cors = require('cors');
+app.use(cors());
 
 let pool = mysql
     .createPool({
