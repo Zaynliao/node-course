@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const Stock = () => {
+    
     const [stocks, setStocks] = useState([]);
 
     useEffect(() => {
