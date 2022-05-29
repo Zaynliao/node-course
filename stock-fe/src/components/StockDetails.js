@@ -1,22 +1,53 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { API_URL } from '../utils/config';
 
 const StockDetails = () => {
-    const [data, setData] = useState([]);
+    let [data, setData] = useState([]);
+    let [page, setPage] = useState(1);
+    let [lastPage, setLastPage] = useState(1);
+    const { stockId } = useParams();
 
     useEffect(() => {
         let getData = async () => {
-            let response = await axios.get(`http://localhost:3001/stocks/2330`);
+            let response = await axios.get(`${API_URL}/stocks/${stockId}`, {
+                params: {
+                    page: page,
+                },
+            });
             setData(response.data.data);
+            setLastPage(response.data.pagenation.lastPage);
         };
         getData();
-    }, []);
+    }, [page, stockId]);
+
+    const getPage = () => {
+        let pages = [];
+        for (let i = 1; i <= lastPage; i++) {
+            pages.push(
+                <li
+                    key={i}
+                    className={`page-link ${page === i ? 'active' : ''}`}
+                    onClick={(e) => {
+                        setPage(i);
+                    }}
+                >
+                    {i}
+                </li>
+            );
+        }
+        return pages;
+    };
 
     return (
         <div>
-            {data.map((item) => {
+            <nav className="mx-auto d-flex justify-center mt-2" aria-label="Page navigation example">
+                <ul className="pagination">{getPage()}</ul>
+            </nav>
+            {data.map((item, index) => {
                 return (
-                    <div className="bg-white bg-gray-50 p-6 rounded-lg shadow m-6">
+                    <div key={item.date} className="bg-white bg-gray-50 p-6 rounded-lg shadow m-6">
                         <h2 className="text-2xl font-bold mb-2 text-gray-800">日期：{item.date}</h2>
                         <h2 className="text-2xl font-bold mb-2 text-gray-800">成交金額：{item.amount}</h2>
                         <h2 className="text-2xl font-bold mb-2 text-gray-800">成交股數：{item.volume}</h2>
@@ -29,36 +60,6 @@ const StockDetails = () => {
                     </div>
                 );
             })}
-
-            <nav aria-label="Page navigation example mx-auto">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="">
-                            1
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="">
-                            2
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="">
-                            3
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     );
 };
