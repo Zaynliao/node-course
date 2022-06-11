@@ -48,7 +48,7 @@ const StockDetails = () => {
             {data.map((item, index) => {
                 return (
                     <div key={item.date} className="bg-white bg-gray-50 p-6 rounded-lg shadow m-6">
-                        <h2 className="text-2xl font-bold mb-2 text-gray-800">日期：{item.date}</h2>
+                        <h2 className="text-2xl font-bold mb-2 text-gray-800 con">日期：{item.date}</h2>
                         <h2 className="text-2xl font-bold mb-2 text-gray-800">成交金額：{item.amount}</h2>
                         <h2 className="text-2xl font-bold mb-2 text-gray-800">成交股數：{item.volume}</h2>
                         <h2 className="text-2xl font-bold mb-2 text-gray-800">開盤價：{item.open_price}</h2>
